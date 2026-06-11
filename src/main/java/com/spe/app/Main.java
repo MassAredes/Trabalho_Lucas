@@ -1,13 +1,23 @@
 package com.spe.app;
 
+import java.time.LocalDate;
+
 import com.spe.factory.MovimentacaoFactory;
-import com.spe.model.*;
+import com.spe.model.PapelUsuario;
+import com.spe.model.Produto;
+import com.spe.model.TipoMovimentacao;
+import com.spe.model.Usuario;
 import com.spe.observer.AlertaService;
 import com.spe.observer.ConsoleAlertaObserver;
-import com.spe.repository.*;
-import com.spe.service.*;
-
-import java.time.LocalDate;
+import com.spe.repository.InMemoryMovimentacaoRepository;
+import com.spe.repository.InMemoryProdutoRepository;
+import com.spe.repository.InMemoryUsuarioRepository;
+import com.spe.repository.MovimentacaoRepository;
+import com.spe.repository.ProdutoRepository;
+import com.spe.repository.UsuarioRepository;
+import com.spe.service.AuditoriaService;
+import com.spe.service.EstoqueService;
+import com.spe.service.UsuarioService;
 
 /** Demonstração end-to-end via console. */
 public class Main {
