@@ -32,16 +32,16 @@ class UsuarioServiceTest {
     @Test
     void cadastroEAutenticacaoOk() {
 
-        //** Cria o serviço de usuários utilizando um repositório em memória. */
+        /** Cria o serviço de usuários utilizando um repositório em memória. */
         UsuarioService s = new UsuarioService(new InMemoryUsuarioRepository());
 
-        //** Cadastra um novo usuário do tipo gerente. */
+        /** Cadastra um novo usuário do tipo gerente. */
         s.cadastrar("ana", "senha123", PapelUsuario.GERENTE);
 
-        //** Verifica se a autenticação com a senha correta funciona. */
+        /** Verifica se a autenticação com a senha correta funciona. */
         assertTrue(s.autenticar("ana", "senha123").isPresent());
 
-        //** Verifica se a autenticação com senha incorreta falha. */
+        /** Verifica se a autenticação com senha incorreta falha. */
         assertFalse(s.autenticar("ana", "errada").isPresent());
     }
 
@@ -55,14 +55,14 @@ class UsuarioServiceTest {
     
     @Test
     void naoPermiteLoginDuplicado() {
-        //** Cria o serviço de usuários. */
+        /** Cria o serviço de usuários. */
         UsuarioService s = new UsuarioService(new InMemoryUsuarioRepository());
 
-        //** Cadastra o primeiro usuário. */
+        /** Cadastra o primeiro usuário. */
         s.cadastrar("ana", "senha123", PapelUsuario.GERENTE);
 
-        //** Tenta cadastrar outro usuário utilizando o mesmo login. */
-        //** O sistema deve lançar uma exceção. */
+        /** Tenta cadastrar outro usuário utilizando o mesmo login. */
+        /** O sistema deve lançar uma exceção. */
         assertThrows(DominioException.class, () -> s.cadastrar("ana", "outra123", PapelUsuario.OPERADOR));
     }
 
