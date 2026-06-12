@@ -38,13 +38,13 @@ class MovimentacaoFactoryTest {
     @Test
     void criaMovimentacaoValida() {
 
-        // Cria uma movimentação utilizando a Factory.
+        /** Cria uma movimentação utilizando a Factory.  */
         Movimentacao m = MovimentacaoFactory.criar("p1", TipoMovimentacao.ENTRADA, 5, "u1", "ok");
 
-        // Verifica se o ID do produto foi armazenado corretamente.
+        /** Verifica se o ID do produto foi armazenado corretamente. */
         assertEquals("p1", m.getProdutoId());
 
-         // Verifica se a quantidade foi armazenada corretamente.
+         /** Verifica se a quantidade foi armazenada corretamente.*/
         assertEquals(5, m.getQuantidade());
     }
 
@@ -59,8 +59,7 @@ class MovimentacaoFactoryTest {
     @Test
     void rejeitaQuantidadeInvalida() {
 
-        // Espera que uma exceção seja lançada,
-        // pois a quantidade informada é inválida.
+        /** Espera que uma exceção seja lançada, pois a quantidade informada é inválida. */
         assertThrows(DominioException.class,
                 () -> MovimentacaoFactory.criar("p1", TipoMovimentacao.SAIDA, 0, "u1", ""));
     }
