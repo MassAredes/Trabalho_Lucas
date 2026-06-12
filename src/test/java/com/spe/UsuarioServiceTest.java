@@ -55,14 +55,14 @@ class UsuarioServiceTest {
     
     @Test
     void naoPermiteLoginDuplicado() {
-        // Cria o serviço de usuários. */
+        //** Cria o serviço de usuários. */
         UsuarioService s = new UsuarioService(new InMemoryUsuarioRepository());
 
-        // Cadastra o primeiro usuário. */
+        //** Cadastra o primeiro usuário. */
         s.cadastrar("ana", "senha123", PapelUsuario.GERENTE);
 
-        //** Tenta cadastrar outro usuário utilizando o mesmo login.
-        // O sistema deve lançar uma exceção. */
+        //** Tenta cadastrar outro usuário utilizando o mesmo login. */
+        //** O sistema deve lançar uma exceção. */
         assertThrows(DominioException.class, () -> s.cadastrar("ana", "outra123", PapelUsuario.OPERADOR));
     }
 
