@@ -4,21 +4,30 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Movimentacao {
+    // Id proprio da movimentacao para conseguir rastrear no historico.
     private final String id;
+    // Guarda qual produto foi afetado por essa movimentacao.
     private final String produtoId;
+    // Tipo diz se foi entrada, saida, ajuste ou descarte.
     private final TipoMovimentacao tipo;
+    // Quantidade movimentada.
     private final int quantidade;
+    // Usuario responsavel pela acao.
     private final String usuarioId;
+    // Momento exato em que o registro foi criado.
     private final LocalDateTime data;
+    // Campo livre para observacoes como "reposicao" ou "venda".
     private final String observacao;
 
     public Movimentacao(String produtoId, TipoMovimentacao tipo, int quantidade,
                         String usuarioId, String observacao) {
+        // Igual ao produto, aqui o id e automatico para nao repetir.
         this.id = UUID.randomUUID().toString();
         this.produtoId = produtoId;
         this.tipo = tipo;
         this.quantidade = quantidade;
         this.usuarioId = usuarioId;
+        // Se vier nulo, eu troco por vazio para evitar problema depois no toString.
         this.observacao = observacao == null ? "" : observacao;
         this.data = LocalDateTime.now();
     }
