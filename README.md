@@ -514,7 +514,32 @@ Foi por isso que eu usei:
 - Repository, para separar o acesso aos dados;
 - JUnit, para testar se tudo realmente funciona.
 
-## 10. Equipe
+## 10. Aplicação dos Princípios SOLID
+
+### SRP – Single Responsibility Principle
+Cada classe possui uma responsabilidade específica.
+Exemplos:
+- EstoqueService: gerenciamento do estoque.
+- UsuarioService: autenticação e cadastro de usuários.
+- AuditoriaService: registro do histórico de movimentações.
+
+### OCP – Open/Closed Principle
+O sistema permite extensão sem alteração do código existente.
+Novas regras de movimentação podem ser adicionadas por meio de novas implementações de Strategy.
+
+### LSP – Liskov Substitution Principle
+Todas as implementações de Repository e Strategy podem substituir suas interfaces sem comprometer o funcionamento do sistema.
+
+### ISP – Interface Segregation Principle
+Foram utilizadas interfaces pequenas e específicas, como:
+- AlertaObserver
+- ValidacaoMovimentacaoStrategy
+
+### DIP – Dependency Inversion Principle
+As camadas de serviço dependem de abstrações (interfaces Repository) e não de implementações concretas.
+
+
+## 11. Equipe
 
 - Gabriel Arthur Marcos Verlangieri - 12413726
 - Júlio César De Lima Moreira - 1232021411
